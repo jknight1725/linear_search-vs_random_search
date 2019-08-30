@@ -2,10 +2,10 @@ from random import randrange
 from time import process_time
 
 
-def number_prompt():
-    num = 0
-    while num < 1 or num > 1000:
-        num = int(input('Enter a number between 1 and 1000: '))
+def number_prompt(lower_bound, upper_bound):
+    num = -1
+    while num < lower_bound or num > upper_bound:
+        num = int(input(f"Enter a number between {lower_bound} and {upper_bound}: "))
     return num
 
 
@@ -104,7 +104,7 @@ def worst_case_algorithm(options, three_random_numbers):
 
 def random_case_algorithm(three_random_numbers):
     upper_constraint = 5000
-    guesses = 0
+    guesses = 1
     while (get_three_random_numbers() != three_random_numbers) and guesses < upper_constraint:
         guesses += 1
     return guesses
